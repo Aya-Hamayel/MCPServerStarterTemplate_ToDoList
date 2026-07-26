@@ -2,6 +2,10 @@
 
 NextFlows Academy · 6 weeks · TypeScript MCP server
 
+> Full program page: [PROGRAM.md](./PROGRAM.md)  
+> Academy hub: [https://nextflows.ai/academy](https://nextflows.ai/academy)  
+> Apply: [Cohort #1](https://nextflows.ai/academy/apply?cohort=1&program=building-mcp-ai-engines)
+
 ## Program outcomes
 
 - A public GitHub repo with a working MCP server

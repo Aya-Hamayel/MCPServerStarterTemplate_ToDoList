@@ -1,8 +1,37 @@
 # MCPRepo — NextFlows Academy Starter
 
-Clone this repo to build your **Model Context Protocol (MCP)** server in TypeScript for the NextFlows Academy program **Building an MCP for an AI Engine**.
+> Part of **[NextFlows Academy](https://nextflows.ai/academy)** — the free cohort program **Building an MCP for an AI Engine**.
 
-By Demo Day you will ship a public GitHub repo with real tools, Zod validation, docs, and a live demo — the same path used in the free cohort.
+Clone this repo to build your **Model Context Protocol (MCP)** server in TypeScript. By Demo Day you will ship a public GitHub repo with real tools, Zod validation, docs, and a live demo — the same path used in the free NextFlows Academy cohort.
+
+**Program hub:** [nextflows.ai/academy](https://nextflows.ai/academy)  
+**Full program page (in this repo):** [`docs/PROGRAM.md`](docs/PROGRAM.md)  
+**Apply:** [Cohort application](https://nextflows.ai/academy/apply?cohort=1&program=building-mcp-ai-engines)
+
+---
+
+## About NextFlows Academy
+
+[NextFlows Academy](https://nextflows.ai/academy) runs structured, cohort-based programs with live sessions, mentor support, and a real project you ship by the end.
+
+This repository belongs to:
+
+| | |
+| --- | --- |
+| **Program** | Building an MCP for an AI Engine |
+| **Audience** | 4th & 5th year CS / CE students |
+| **Duration** | 6 weeks |
+| **Format** | Cohort + project |
+| **Price** | Free |
+| **Level** | Intermediate |
+| **Outcome** | Shipped MCP server on GitHub |
+| **Schedule** | Wed & Sat online 1:30–3:30 PM + Monday on-site workshop days |
+
+You go from “what’s an MCP?” to a working MCP server connected to an AI engine (for example Claude), fully documented, and live on GitHub.
+
+See [`docs/PROGRAM.md`](docs/PROGRAM.md) for outcomes, weekly plan, starter projects, and who it’s for.
+
+---
 
 ## What you get
 
@@ -12,9 +41,11 @@ By Demo Day you will ship a public GitHub repo with real tools, Zod validation, 
 | `src/tools/` | One register helper per tool |
 | `src/schemas/` | Zod input contracts (with `.describe(...)`) |
 | `examples/` | Sample JSON args for Inspector |
-| `docs/` | Project choice + design templates |
+| `docs/PROGRAM.md` | Full NextFlows Academy program page |
 | `docs/WEEK-2.md` | Full Week 2 step-by-step plan |
 | `docs/CURRICULUM.md` | 6-week overview |
+| `docs/project-choice.md` | Week 2 project choice template |
+| `docs/design.md` | Week 2 design doc template |
 
 **Week 1 is already wired:** a working `greet` tool so you can open Inspector on day one.
 
@@ -40,16 +71,28 @@ In the Inspector browser tab:
 
 1. Click **Connect**
 2. Open **Tools**
-3. Call `greet` with `{ "name": "Alex" }` (see `examples/greet.json`)
+3. Select `greet` and put `Alex` in the **name** field (see `examples/greet.json` for the full args shape)
 4. Try invalid input (empty name) and confirm Zod rejects it
 
 To run the server alone (waits on stdin):
 
 ```bash
-npm start
+npm run dev
 ```
 
 > **Important:** log only with `console.error`. Never use `console.log` — stdout is reserved for the MCP protocol.
+
+## Week 2
+
+Week 2 is design-first. Follow [`docs/WEEK-2.md`](docs/WEEK-2.md).
+
+Useful scripts:
+
+| Script | What it does |
+| --- | --- |
+| `npm run dev` | Start the MCP server on stdio (stays alive; stop with Ctrl+C) |
+| `npm start` | Same as `dev` |
+| `npm run inspect` | Open MCP Inspector against this server |
 
 ## Stack
 
@@ -70,6 +113,8 @@ npm start
 | 5 | Test & write docs people can follow |
 | 6 | Ship on GitHub & Demo Day |
 
+Full program details: [`docs/PROGRAM.md`](docs/PROGRAM.md)
+
 ## Starter project options (pick in Week 2)
 
 1. **Notes & FAQ Search** — fully offline (example stubs included)
@@ -85,10 +130,11 @@ Advanced ideas (repo health, course planner, job tracker) need **mentor approval
 ```text
 MCPRepo/
 ├── docs/
-│   ├── project-choice.md
-│   ├── design.md
+│   ├── PROGRAM.md
+│   ├── CURRICULUM.md
 │   ├── WEEK-2.md
-│   └── CURRICULUM.md
+│   ├── project-choice.md
+│   └── design.md
 ├── examples/
 │   └── <tool_name>.json
 ├── src/
@@ -107,12 +153,15 @@ MCPRepo/
 - Prefer small focused tools over one mega-tool with an `action` enum
 - Avoid paid APIs / OAuth-heavy projects in Weeks 1–2
 
-## Official references
+## Links
 
+- [NextFlows Academy](https://nextflows.ai/academy)
+- [Program page (this repo)](docs/PROGRAM.md)
+- [Apply for Cohort #1](https://nextflows.ai/academy/apply?cohort=1&program=building-mcp-ai-engines)
 - [MCP docs](https://modelcontextprotocol.io/docs)
 - [MCP specification](https://modelcontextprotocol.io/specification/latest)
 - [Build your first server (TypeScript SDK)](https://ts.sdk.modelcontextprotocol.io/v2/get-started/first-server.html)
 
 ## License
 
-MIT — built for NextFlows Academy students.
+MIT — built for [NextFlows Academy](https://nextflows.ai/academy) students.
