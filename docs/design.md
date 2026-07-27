@@ -19,8 +19,8 @@ Examples:
 
 ## Tool Inventory
 
-| Tool | Purpose |
-|------|---------|
+| Tool | Purpose |priority|
+|------|---------|-------|
 | add_task | Create a new task |p0
 | list_tasks | Show all tasks |p0
 | complete_task | Mark a task as completed |p0
