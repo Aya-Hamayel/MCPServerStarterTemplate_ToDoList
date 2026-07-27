@@ -1,4 +1,4 @@
-import type { McpServer } from "@modelcontextprotocol/server";
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { listTasksInputSchema } from "../schemas/list-task.js";
 import { tasks } from "./taskStore.js";
 

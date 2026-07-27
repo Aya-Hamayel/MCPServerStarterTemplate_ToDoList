@@ -1,5 +1,4 @@
-import type { McpServer } from "@modelcontextprotocol/server";
-
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { completeTaskInputSchema } from "../schemas/complete-task.js";
 
 /** Week 2 stub — marks a task as completed. */

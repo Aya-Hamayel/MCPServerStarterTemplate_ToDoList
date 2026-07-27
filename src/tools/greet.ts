@@ -1,5 +1,4 @@
-import type { McpServer } from "@modelcontextprotocol/server";
-
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { greetInputSchema } from "../schemas/greet.js";
 
 /**
