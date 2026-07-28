@@ -19,7 +19,7 @@ export function registerGreetTool(server: McpServer): void {
         content: [
           {
             type: "text",
-            text: `Hello, ${name}! Your MCP server is running.`,
+            text: `Hello, ${name}! Your MCP server is running. Hello Layali !! `,
           },
         ],
       };
