@@ -5,6 +5,7 @@ import { registerGreetTool } from "./tools/greet.js";
 import { registerAddTaskTool } from "./tools/add-task.js";
 import { registerListTasksTool } from "./tools/list-task.js";
 import { registerCompleteTaskTool } from "./tools/complete-task.js";
+import { registerDeleteTaskTool } from "./tools/delete-task.js";
 
 function createServer(): McpServer {
   const server = new McpServer({
@@ -12,10 +13,11 @@ function createServer(): McpServer {
     version: "0.1.0",
   });
 
-  registerGreetTool(server);
-  registerAddTaskTool(server);
-  registerListTasksTool(server);
-  registerCompleteTaskTool(server);
+registerGreetTool(server);
+registerAddTaskTool(server);
+registerListTasksTool(server);
+registerCompleteTaskTool(server);
+registerDeleteTaskTool(server);
 
   return server;
 }
