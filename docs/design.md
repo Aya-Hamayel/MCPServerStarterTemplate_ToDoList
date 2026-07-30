@@ -1,5 +1,11 @@
 # To-Do List MCP Design
 
+## Team Members
+
+- Sara Shrouf
+- Aya Hamayel
+-Layali Shoman
+
 ## Project Pitch
 
 The To-Do List MCP Server helps users organize and manage their daily tasks through an AI assistant. It is designed for students, software developers, and office workers who need a simple way to track their work. The MCP server exposes clear tools that allow the AI to add tasks, list tasks, complete tasks, delete tasks, and search tasks. The project works locally and does not require paid APIs or external online services.
