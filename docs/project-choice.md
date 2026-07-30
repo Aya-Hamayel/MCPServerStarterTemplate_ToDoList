@@ -2,6 +2,11 @@
 
 ## Project Title
 To-Do List MCP Server
+## Team Members
+
+- Sara Shrouf
+- Aya Hamayel
+-Layali Shoman
 
 ##team members
  Aya Hamayel
