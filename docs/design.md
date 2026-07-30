@@ -1,74 +1,51 @@
-# Design doc — Week 2
+# To-Do List MCP Design
 
-> Mandatory for mentor review. Open a GitHub Issue linking to this file before Week 3.
+## Project Pitch
 
-**Student:**  
-**Repo:**  
-**Branch:** `week-2-design`  
-**GitHub Issue:**  
+The To-Do List MCP Server helps users manage their daily tasks through AI assistants. Instead of manually tracking tasks, users can ask the AI to create, list, complete, or remove tasks.
 
 ---
 
-## 1. Pitch
+## Target User
 
-One paragraph: what you are building and who it helps.
+People who need a simple and organized way to manage personal tasks.
 
-## 2. Demo Day user story
+Examples:
+- Students
+- Software Developers
+- Office Workers
 
-Describe a 2–3 minute live demo:
+---
 
-1. Host / Inspector starts
-2. User asks for …
-3. Model calls tool(s) …
-4. Audience sees …
+## Tool Inventory
 
-## 3. Tool inventory (4–7 tools)
+| Tool | Purpose |
+|------|---------|
+| add_task | Create a new task |p0
+| list_tasks | Show all tasks |p0
+| complete_task | Mark a task as completed |p0
+| delete_task | Remove a task |p1
+| search_tasks | Search tasks by keyword |p1
 
-Mark exactly **three** tools as **P0** (must work for Demo Day). Others can be P1 stubs.
+---
 
-| Priority | Tool name (`verb_noun`) | Description (for the model) | Inputs | Outputs |
-| --- | --- | --- | --- | --- |
-| P0 |  |  |  |  |
-| P0 |  |  |  |  |
-| P0 |  |  |  |  |
-| P1 |  |  |  |  |
-| P1 |  |  |  |  |
+## Out of Scope
 
-## 4. Out of scope
+These features will NOT be included in this version:
 
-List what you will **not** build in this cohort (auth, paid APIs, mobile UI, etc.).
+- User authentication
+- Notifications
 
--
 
--
+---
 
--
+## Demo Day Success Criteria
 
-## 5. Success criteria
+The project will be considered successful if it can:
 
-You succeed on Demo Day if:
-
-- [ ]
-- [ ]
-- [ ]
-
-## 6. Top risks
-
-| Risk | Likelihood | Mitigation |
-| --- | --- | --- |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-
-## 7. Evidence for Week 2
-
-- [ ] `docs/project-choice.md` filled
-- [ ] ≥3 Zod schemas under `src/schemas/`
-- [ ] Tools registered (stubs OK)
-- [ ] `examples/<tool>.json` for each registered tool
-- [ ] Inspector screenshots attached to the GitHub Issue
-
-## Mentor decision
-
-- Status: pending / approved / changes requested
-- Comments:
+- Add new tasks
+- List all tasks
+- Complete tasks
+- Delete tasks
+- Search tasks
+- Return clear responses through MCP Inspector

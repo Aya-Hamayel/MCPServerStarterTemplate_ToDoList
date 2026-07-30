@@ -5,6 +5,8 @@ import { registerGreetTool } from "./tools/greet.js";
 import { registerAddTaskTool } from "./tools/add-task.js";
 import { registerListTasksTool } from "./tools/list-tasks.js";
 import { registerCompleteTaskTool } from "./tools/complete-task.js";
+import { registerDeleteTaskTool } from "./tools/delete-task.js";
+import { registerEditTaskTool } from "./tools/edit-task.js";
 
 /**
  * Factory used by stdio (and later HTTP) so every connection gets a fresh server.
@@ -12,20 +14,24 @@ import { registerCompleteTaskTool } from "./tools/complete-task.js";
  */
 function createServer(): McpServer {
   const server = new McpServer({
-    name: "mcprepo",
-    version: "0.1.0",
+    name: "todo-list-mcp",
+    version: "0.2.0",
   });
 
-  // Week 1 — one working tool so you can verify Inspector immediately
+  // Week 1 — verify Inspector
   registerGreetTool(server);
 
-  // Week 2 — To-Do List tools
+  // P0 — must work for Demo Day
   registerAddTaskTool(server);
   registerListTasksTool(server);
   registerCompleteTaskTool(server);
+
+  // P1 — stubs for now, real logic comes in Week 3
+  registerDeleteTaskTool(server);
+  registerEditTaskTool(server);
 
   return server;
 }
 
 void serveStdio(createServer);
-console.error("mcprepo MCP server running on stdio");
+console.error("todo-list-mcp MCP server running on stdio");

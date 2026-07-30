@@ -1,39 +1,23 @@
-# Project choice
+# Project Choice
 
-> Complete in Week 2. One sentence only for the pitch line — expand details below if needed.
+## Project Title
+To-Do List MCP Server
 
-## Pitch (required)
+## Project Summary
+This project is an MCP server that helps users manage their daily tasks. It allows AI assistants to create, view, update, complete, and delete tasks through simple MCP tools.
 
-I am building **X** for **Y** so that **Z**.
+## Why I Chose This Project
+I chose this project because it is practical, easy to expand in future weeks, and demonstrates the core concepts of MCP tool design.
 
-<!-- Example:
-I am building a Notes & FAQ Search MCP for classmates so that they can ask an AI host to find answers in our course notes without leaving the chat.
--->
+## Target Users
+- Students
+- Developers
+- Professionals
+- Anyone who wants to organize daily tasks
 
-## Starter selected
-
-- [ ] Notes & FAQ Search
-- [ ] Personal Expense Tracker
-- [ ] To-Do List
-- [ ] Weather Briefing
-- [ ] Quote of the Day
-- [ ] Other (mentor-approved): _______________
-
-## Scoring (1–5)
-
-| Criterion | Score | Notes |
-| --- | --- | --- |
-| Personal interest |  |  |
-| Offline / free-API demoability |  |  |
-| No paid API keys required |  |  |
-| Fits in four remaining build weeks |  |  |
-
-## Why this one (3–5 sentences)
-
-<!-- Write here -->
-
-## Mentor notes
-
-- Reviewed by:
-- Date:
-- Decision: approved / revise
+## Future Features
+- Task priorities
+- Due dates
+- Categories
+- Search tasks
+- Filter completed tasks
