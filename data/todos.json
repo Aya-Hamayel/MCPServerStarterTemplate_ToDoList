@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "text": "Buy groceries",
+    "done": false
+  },
+  {
+    "id": 2,
+    "text": "Finish MCP project",
+    "done": false
+  }
+]
