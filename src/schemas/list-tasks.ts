@@ -1,19 +1,16 @@
 import * as z from "zod/v4";
 
-// Tool: List Tasks
+// Schema for: list_tasks
 export const listTasksInputSchema = z.object({
   text: z
     .string()
-    .min(1)
-    .max(200)
     .optional()
-    .describe("Optional text to filter tasks by title or description"),
-
+    .describe("Optional search text to filter tasks by"),
   limit: z
     .number()
     .int()
     .positive()
     .max(50)
     .optional()
-    .describe("Maximum number of tasks to return, defaults to 10"),
+    .describe("Max number of tasks to return, defaults to 10"),
 });
