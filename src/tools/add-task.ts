@@ -1,4 +1,4 @@
-import type { McpServer } from "@modelcontextprotocol/server";
+import { McpServer } from "@modelcontextprotocol/server";
 import { addTaskInputSchema } from "../schemas/add-task.js";
 import { tasks, incrementNextId } from "./taskStore.js";
 

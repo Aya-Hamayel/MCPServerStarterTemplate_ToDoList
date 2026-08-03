@@ -1,24 +1,36 @@
 import type { McpServer } from "@modelcontextprotocol/server";
 import { completeTaskInputSchema } from "../schemas/complete-task.js";
-import { tasks } from "./taskStore.js";
 
+/** Week 2 stub — marks a task as completed. */
 export function registerCompleteTaskTool(server: McpServer): void {
   server.registerTool(
     "complete_task",
     {
-      description: "Mark a task as complete by its ID",
+      description:
+        "Mark an existing task as completed using its task ID. This tool changes task status and returns the updated task.",
       inputSchema: completeTaskInputSchema,
     },
-    async ({ id }) => {
-      const task = tasks.find((t) => t.id === id);
-      if (!task) {
-        return {
-          content: [{ type: "text", text: `No task found with ID ${id}.` }],
-        };
-      }
-      task.done = true;
+    async ({ taskId }) => {
       return {
-        content: [{ type: "text", text: `Marked task #${id} as complete.` }],
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(
+              {
+                stub: true,
+                tool: "complete_task",
+                task: {
+                  id: taskId,
+                  status: "completed",
+                },
+                message:
+                  "Task marked as completed in the Week 2 stub response.",
+              },
+              null,
+              2,
+            ),
+          },
+        ],
       };
     },
   );
