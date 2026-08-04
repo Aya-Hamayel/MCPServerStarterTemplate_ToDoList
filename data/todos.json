@@ -8,5 +8,15 @@
     "id": 2,
     "text": "Finish MCP project",
     "done": false
+  },
+  {
+    "id": 3,
+    "text": "\"text\": \"Finish week3 task\"",
+    "done": false
+  },
+  {
+    "id": 4,
+    "text": "Finish week3 task",
+    "done": false
   }
 ]

@@ -1,6 +1,6 @@
 import type { McpServer } from "@modelcontextprotocol/server";
 import { addTaskInputSchema } from "../schemas/add-task.js";
-import { tasks, incrementNextId, persistTasks } from "./taskStore.js";
+import { addTaskToStore } from "../lib/tasks.js";
 
 export function registerAddTaskTool(server: McpServer): void {
   server.registerTool(
@@ -10,16 +10,16 @@ export function registerAddTaskTool(server: McpServer): void {
       inputSchema: addTaskInputSchema,
     },
     async ({ text }) => {
-      const id = incrementNextId();
-      const task = { id, text, done: false };
-      tasks.push(task);
-      persistTasks();
+  const task = await addTaskToStore(text);
 
-      return {
-        content: [
-          { type: "text", text: JSON.stringify(task, null, 2) },
-        ],
-      };
-    },
+  return {
+    content: [
+      {
+        type: "text",
+        text: JSON.stringify(task, null, 2),
+      },
+    ],
+   };
+   },
   );
 }
