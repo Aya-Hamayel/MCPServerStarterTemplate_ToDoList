@@ -6,30 +6,17 @@ export function registerListTasksTool(server: McpServer): void {
   server.registerTool(
     "list_tasks",
     {
-      description: "List all tasks in the to-do list, optionally filtered by text",
+      description: "List all tasks in the to-do list",
       inputSchema: listTasksInputSchema,
     },
-    async ({ text, limit }) => {
-      let result = tasks;
-
-      if (text) {
-        result = result.filter((t) =>
-          t.text.toLowerCase().includes(text.toLowerCase()),
-        );
+    async () => {
+      if (tasks.length === 0) {
+        return { content: [{ type: "text", text: "No tasks yet." }] };
       }
-
-      if (limit) {
-        result = result.slice(0, limit);
-      }
-
-      return {
-        content: [
-          {
-            type: "text",
-            text: JSON.stringify({ tasks: result }, null, 2),
-          },
-        ],
-      };
+      const summary = tasks
+        .map((t) => `#${t.id} [${t.done ? "x" : " "}] ${t.text}`)
+        .join("\n");
+      return { content: [{ type: "text", text: summary }] };
     },
   );
 }
