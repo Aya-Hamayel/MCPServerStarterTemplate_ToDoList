@@ -1,10 +1,10 @@
 import * as z from "zod/v4";
 
-/** Tool: complete_task */
+// Schema for: complete_task
 export const completeTaskInputSchema = z.object({
-  taskId: z
+  id: z
     .number()
     .int()
     .positive()
-    .describe("The unique numeric ID of the task to mark as completed"),
+    .describe("The ID of the task to mark as complete"),
 });

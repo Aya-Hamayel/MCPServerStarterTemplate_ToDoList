@@ -3,7 +3,7 @@ import { serveStdio } from "@modelcontextprotocol/server/stdio";
 
 import { registerGreetTool } from "./tools/greet.js";
 import { registerAddTaskTool } from "./tools/add-task.js";
-import { registerListTasksTool } from "./tools/list-task.js";
+import { registerListTasksTool } from "./tools/list-tasks.js";
 import { registerCompleteTaskTool } from "./tools/complete-task.js";
 import { registerDeleteTaskTool } from "./tools/delete-task.js";
 
