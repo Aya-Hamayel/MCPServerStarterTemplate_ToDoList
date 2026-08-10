@@ -1,6 +1,6 @@
 import { readFile, writeFile } from "fs/promises";
 import { resolve } from "path";
-
+import { z } from "zod";
 
 const DATA_PATH = resolve(process.cwd(), "data/todos.json");
 
@@ -10,12 +10,29 @@ export type Task = {
   done: boolean;
 };
 
+const taskSchema = z.object({
+  id: z.number().int().positive(),
+  text: z.string().min(1).max(200),
+  done: z.boolean(),
+});
+
+const tasksSchema = z.array(taskSchema);
+
 export async function loadTasks(): Promise<Task[]> {
   try {
     const raw = await readFile(DATA_PATH, "utf-8");
+
     const parsed = JSON.parse(raw);
-    if (!Array.isArray(parsed)) return [];
-    return parsed as Task[];
+    const result = tasksSchema.safeParse(parsed);
+
+if (!result.success) {
+  console.error("[tasks.ts] Invalid task data.");
+  return [];
+}
+
+return result.data;
+
+    
   } catch (err) {
     console.error(`[tasks.ts] Failed to load ${DATA_PATH}:`, err);
     return [];

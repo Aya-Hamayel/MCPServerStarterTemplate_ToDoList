@@ -1,6 +1,6 @@
 import type { McpServer } from "@modelcontextprotocol/server";
 import { listTasksInputSchema } from "../schemas/list-tasks.js";
-import { loadTasks } from "../lib/tasks.js";
+import { listTasksFromStore } from "../lib/tasks.js";
 
 export function registerListTasksTool(server: McpServer): void {
   server.registerTool(
@@ -10,7 +10,7 @@ export function registerListTasksTool(server: McpServer): void {
       inputSchema: listTasksInputSchema,
     },
     async () => {
-      const tasks = await loadTasks();
+      const tasks = await listTasksFromStore();
 
       if (tasks.length === 0) {
         return {
