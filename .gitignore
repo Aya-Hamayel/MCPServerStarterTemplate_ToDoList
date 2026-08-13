@@ -10,3 +10,7 @@ build/
 .vscode/
 coverage/
 .tsx-cache/
+.env
+.env.local
+*.key
+*.pem
