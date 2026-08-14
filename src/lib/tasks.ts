@@ -1,8 +1,12 @@
-import { readFile, writeFile } from "fs/promises";
-import { resolve } from "path";
+import { readFile, writeFile, mkdir } from "fs/promises";
+import { resolve, dirname } from "path";
+import { fileURLToPath } from "url";
 import { z } from "zod";
 
-const DATA_PATH = resolve(process.cwd(), "data/todos.json");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const DATA_PATH = resolve(__dirname, "../../data/todos.json");
 
 export type Task = {
   id: number;
@@ -36,20 +40,21 @@ export async function loadTasks(): Promise<Task[]> {
       console.error("[tasks.ts] Invalid task data.");
       return [];
     }
+    if (!result.success) {
+      console.error("[tasks.ts] Invalid task data.");
+      return [];
+    }
 
     return result.data;
-  } catch {
-    console.error("[tasks.ts] Failed to load task data.");
+  } catch (err) {
+    console.error(`[tasks.ts] Failed to load ${DATA_PATH}:`, err);
     return [];
   }
 }
 
 async function saveTasks(tasks: Task[]): Promise<void> {
-  await writeFile(
-    DATA_PATH,
-    JSON.stringify(tasks, null, 2),
-    "utf-8",
-  );
+  await mkdir(dirname(DATA_PATH), { recursive: true });
+  await writeFile(DATA_PATH, JSON.stringify(tasks, null, 2), "utf-8");
 }
 
 export async function addTaskToStore(
