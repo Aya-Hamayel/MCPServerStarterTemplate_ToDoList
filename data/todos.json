@@ -43,5 +43,15 @@
     "id": 9,
     "text": "in love",
     "done": false
+  },
+  {
+    "id": 10,
+    "text": "Test task from unit test",
+    "done": false
+  },
+  {
+    "id": 11,
+    "text": "padded text",
+    "done": false
   }
 ]

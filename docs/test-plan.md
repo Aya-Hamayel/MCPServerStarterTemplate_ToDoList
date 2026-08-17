@@ -33,3 +33,23 @@ No failures were found during testing. All test cases passed on the first run.
 ## Later
 
 None. No new ideas came up during testing.
+
+## Evidence
+
+### TC-01 — Happy Path
+
+Successful `add_task` call.
+
+![Evidence 1 — Happy Path](evidence/evidence-1-happy-path.png)
+
+### TC-06 — Validation Rejection
+
+Invalid task ID rejected by validation.
+
+![Evidence 2 — Validation Rejection](evidence/evidence-2-validation-rejection.png)
+
+### TC-02 — Empty / Error Case
+
+Empty task text rejected with a controlled validation error.
+
+![Evidence 3 — Empty / Error Case](evidence/evidence-3-empty-error.png)

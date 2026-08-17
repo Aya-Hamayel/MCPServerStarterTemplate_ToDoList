@@ -40,10 +40,6 @@ export async function loadTasks(): Promise<Task[]> {
       console.error("[tasks.ts] Invalid task data.");
       return [];
     }
-    if (!result.success) {
-      console.error("[tasks.ts] Invalid task data.");
-      return [];
-    }
 
     return result.data;
   } catch (err) {
