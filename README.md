@@ -124,3 +124,9 @@ SECURITY.md    # Security notes and practices
 - See [SECURITY.md](./SECURITY.md) for further details.
 
 #
+## Testing
+
+Run the unit tests for pure helper functions:
+\`\`\`bash
+npm test
+\`\`\`
