@@ -47,7 +47,6 @@ This launches the Inspector, starts the server in the background, and opens a br
 
 | Tool | Input | Required Fields | Description |
 |---|---|---|---|
-| `greet` | `{ name: string }` | `name` (min 2 chars) | Returns a short greeting. Use it to confirm the server is running and responding. |
 | `add_task` | `{ text: string }` | `text` (1–200 chars) | Adds a new task and returns it with a generated `id`. |
 | `list_tasks` | `{ text?: string, limit?: number }` | none | Lists tasks, optionally filtered by text. `limit` caps results (max 50, default 10). |
 | `complete_task` | `{ taskId: number }` | `taskId` (positive integer) | Marks the task with the given ID as completed. |
@@ -61,7 +60,6 @@ Once connected to an MCP client, you can try prompts like:
 - "Show me my current to-do list."
 - "List only tasks that mention 'lab'."
 - "Mark task #2 as complete."
-- "Say hello to confirm the server is working."
 
 ## Troubleshooting
 
@@ -92,6 +90,11 @@ SECURITY.md    # Security notes and practices
 - No user-controlled file paths are used; `data/todos.json` is a fixed path.
 - No credentials or secrets are stored in the repository; `.env` files are excluded via `.gitignore`.
 - Each stored task is validated individually on load. A malformed entry in `data/todos.json` (e.g. a negative `id` from a manual edit) is skipped and logged — it no longer discards the rest of the task list. See [SECURITY.md](./SECURITY.md) for details.
+
+## Example Conversations
+
+See [examples/conversations.md](./examples/conversations.md) for three example conversations showing how a model can use the MCP server tools and turn tool results into natural-language responses.
+
 
 ## License
 
