@@ -26,26 +26,35 @@ const taskSchema = z.object({
   done: z.boolean(),
 });
 
-const tasksSchema = z.array(taskSchema);
-
 export async function loadTasks(): Promise<Task[]> {
   try {
     const raw = await readFile(DATA_PATH, "utf-8");
 
     const parsed = JSON.parse(raw);
 
-    const result = tasksSchema.safeParse(parsed);
-
-    if (!result.success) {
-      console.error("[tasks.ts] Invalid task data.");
-      return [];
-    }
-    if (!result.success) {
-      console.error("[tasks.ts] Invalid task data.");
+    if (!Array.isArray(parsed)) {
+      console.error("[tasks.ts] Invalid task data: expected an array.");
       return [];
     }
 
-    return result.data;
+    // Validate each task individually so one malformed entry (e.g. a
+    // negative id from a manual edit) doesn't discard the whole list.
+    const validTasks: Task[] = [];
+
+    for (const item of parsed) {
+      const result = taskSchema.safeParse(item);
+
+      if (result.success) {
+        validTasks.push(result.data);
+      } else {
+        console.error(
+          "[tasks.ts] Skipping invalid task entry:",
+          result.error.issues,
+        );
+      }
+    }
+
+    return validTasks;
   } catch (err) {
     console.error(`[tasks.ts] Failed to load ${DATA_PATH}:`, err);
     return [];
