@@ -123,4 +123,10 @@ SECURITY.md    # Security notes and practices
 - No credentials or secrets are stored in the repository; `.env` files are excluded via `.gitignore`, and `.env.example` contains placeholder values only.
 - See [SECURITY.md](./SECURITY.md) for further details.
 
-#
+
+## Testing
+
+Run the unit tests for pure helper functions:
+\`\`\`bash
+npm test
+\`\`\`
