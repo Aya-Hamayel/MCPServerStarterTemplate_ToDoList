@@ -8,10 +8,7 @@ To-Do List MCP Server
 - Aya Hamayel
 -Layali Shoman
 
-##team members
- Aya Hamayel
- Sara shrouf
- Layali Shoman
+
  
 ## Project Summary
 This project is an MCP server that helps users manage their daily tasks. It allows AI assistants to create, view, update, complete, and delete tasks through simple MCP tools.

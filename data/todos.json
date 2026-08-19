@@ -1,53 +1,67 @@
 [
   {
-    "id": -1,
-    "text": "Buy groceries",
-    "done": true
+    "id": 1,
+    "text": "Complete MCP project",
+    "done": false
   },
   {
     "id": 2,
-    "text": "Finish MCP project",
-    "done": false
+    "text": "Review Week 5 documentation",
+    "done": true
   },
-  
+  {
+    "id": 3,
+    "text": "Test list_tasks tool",
+    "done": true
+  },
   {
     "id": 4,
-    "text": "Finish week3 task",
+    "text": "Fix task filtering",
     "done": false
   },
   {
     "id": 5,
-    "text": "aya",
+    "text": "Run MCP server",
     "done": true
   },
   {
     "id": 6,
-    "text": "finish p0",
-    "done": true
+    "text": "Capture evidence screenshots",
+    "done": false
   },
   {
     "id": 7,
-    "text": "Do homeworks",
+    "text": "Update README file",
     "done": true
   },
   {
     "id": 8,
-    "text": "l",
-    "done": true
-  },
-  {
-    "id": 9,
-    "text": "in love",
+    "text": "Review mentor feedback",
     "done": false
   },
   {
+    "id": 9,
+    "text": "Write daily log",
+    "done": true
+  },
+  {
     "id": 10,
-    "text": "Test task from unit test",
+    "text": "Test limit functionality",
     "done": false
   },
   {
     "id": 11,
-    "text": "padded text",
+    "text": "Check error handling",
+    "done": false
+  },
+  {
+    "id": 12,
+    "text": "Push changes to GitHub",
+    "done": true
+  },
+  {
+    "id": 13,
+    "text": "Buy groceries",
     "done": false
   }
 ]
