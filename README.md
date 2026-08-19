@@ -96,3 +96,7 @@ SECURITY.md    # Security notes and practices
 ## License
 
 MIT — see [LICENSE](./LICENSE).
+
+## Example Conversations
+
+See [Example Conversations](examples/conversations.md) for examples of how users interact with the MCP server through an MCP client and how the model calls the available tools.
