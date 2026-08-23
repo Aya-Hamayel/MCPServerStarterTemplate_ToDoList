@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List MCP Server</title>
+<meta name="description" content="An MCP server that gives an AI assistant a real, local to-do list — add, list, complete, and search tasks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>todo-list-mcp</b> · v1.0.0</a>
+    <nav class="topnav">
+      <a href="#architecture">Architecture</a>
+      <a href="#tools">Tools</a>
+      <a href="#demo">Demo</a>
+      <a href="#team">Team</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Model Context Protocol · Coursework Project</p>
+    <div class="hero-line">
+      <div class="check" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6"/></svg>
+      </div>
+      <h1>Give your AI assistant<br>a real <span class="strike">imaginary</span> to-do list.</h1>
+    </div>
+    <p class="dek">
+      The To-Do List MCP Server exposes a small, well-defined set of tools —
+      add, list, complete, delete, search — so an AI model can manage a
+      person's tasks directly, validated and running entirely on their own
+      machine.
+    </p>
+    <div class="hero-actions">
+      <a class="btn" href="https://github.com/Aya-Hamayel/MCPServerStarterTemplate_ToDoList" target="_blank" rel="noopener">View repo →</a>
+      <a class="btn ghost" href="#demo">See the demo story</a>
+    </div>
+  </div>
+</header>
+
+<section class="split-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">01</span>
+      <h2>Why this exists</h2>
+    </div>
+    <div class="split">
+      <div class="card">
+        <h3>The problem</h3>
+        <p>
+          Students, developers, and office workers need a simple way to
+          track daily work — but most task tools live behind a UI an AI
+          assistant can't touch, and require accounts or paid services just
+          to get started.
+        </p>
+      </div>
+      <div class="card">
+        <h3>The approach</h3>
+        <p>
+          Expose the task list as a set of clear MCP tools an AI can call
+          directly. No paid APIs, no external services — the server runs
+          locally and stores tasks in a plain JSON file.
+        </p>
+      </div>
+    </div>
+    <div class="users">
+      <span class="chip">Students</span>
+      <span class="chip">Software developers</span>
+      <span class="chip">Office workers</span>
+    </div>
+  </div>
+</section>
+
+<section id="architecture">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">02</span>
+      <h2>Architecture</h2>
+    </div>
+    <div class="card" style="padding: 28px 22px;">
+      <div class="pipeline">
+        <div class="stage">
+          <span class="k">validate</span>
+          <span class="v">schemas/</span>
+        </div>
+        <div class="arrow">→</div>
+        <div class="stage">
+          <span class="k">register</span>
+          <span class="v">tools/</span>
+        </div>
+        <div class="arrow">→</div>
+        <div class="stage">
+          <span class="k">persist</span>
+          <span class="v">lib/tasks.ts</span>
+        </div>
+      </div>
+    </div>
+    <p style="color: var(--ink-soft); font-size: 14px; margin-top: 14px;">
+      Every tool input is checked against a Zod schema before it reaches
+      storage. Tasks are read from and written to <code style="font-family: var(--mono); background: var(--card); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--line);">data/todos.json</code>,
+      validated one entry at a time so a single malformed record can't wipe
+      the rest of the list.
+    </p>
+  </div>
+</section>
+
+<section id="tools">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">03</span>
+      <h2>Tool inventory</h2>
+    </div>
+    <div class="card" style="overflow-x:auto;">
+      <table class="manifest">
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Description</th>
+            <th>Inputs</th>
+            <th>Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>add_task</code></td>
+            <td>Create a new task in the to-do list.</td>
+            <td><code>text: string</code></td>
+            <td><span class="pill p0">P0</span></td>
+          </tr>
+          <tr>
+            <td><code>list_tasks</code></td>
+            <td>Return tasks currently stored in the to-do list.</td>
+            <td><code>text?: string</code>, <code>limit?: number</code></td>
+            <td><span class="pill p0">P0</span></td>
+          </tr>
+          <tr>
+            <td><code>complete_task</code></td>
+            <td>Mark an existing task as completed using its task ID.</td>
+            <td><code>taskId: string</code></td>
+            <td><span class="pill p0">P0</span></td>
+          </tr>
+          <tr>
+            <td><code>delete_task</code></td>
+            <td>Remove an existing task using its task ID.</td>
+            <td><code>taskId: number</code></td>
+            <td><span class="pill p1">P1</span></td>
+          </tr>
+          <tr>
+            <td><code>search_tasks</code></td>
+            <td>Search stored tasks using a keyword.</td>
+            <td><code>query: string</code></td>
+            <td><span class="pill p1">P1</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">04</span>
+      <h2>Demo day story</h2>
+    </div>
+    <ol class="story">
+      <li>
+        <span class="tool">add_task</span>
+        <p>The user asks the assistant to add a task called "Finish the Linux assignment." The model calls <code style="font-family:var(--mono); font-size:13px;">add_task</code> and returns the new task's ID.</p>
+      </li>
+      <li>
+        <span class="tool">list_tasks</span>
+        <p>The user asks to see all current tasks. The model calls <code style="font-family:var(--mono); font-size:13px;">list_tasks</code> and displays what's on the list.</p>
+      </li>
+      <li>
+        <span class="tool">complete_task</span>
+        <p>The user says the Linux assignment is done. The model calls <code style="font-family:var(--mono); font-size:13px;">complete_task</code> with that task's ID and confirms it's marked complete.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="scope">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">05</span>
+      <h2>Out of scope</h2>
+    </div>
+    <ul class="scope-list">
+      <li>User authentication and multiple user accounts</li>
+      <li>Mobile or graphical user interface</li>
+      <li>Notifications, reminders, or calendar integration</li>
+      <li>Cloud database synchronization</li>
+      <li>Paid APIs or external online services</li>
+    </ul>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">06</span>
+      <h2>Team</h2>
+    </div>
+    <div class="team">
+      <div class="card member">
+        <div class="avatar">SS</div>
+        <div class="name">Sara Shrouf</div>
+        <div class="role">Contributor</div>
+      </div>
+      <div class="card member">
+        <div class="avatar">AH</div>
+        <div class="name">Aya Hamayel</div>
+        <div class="role">Contributor</div>
+      </div>
+      <div class="card member">
+        <div class="avatar">LS</div>
+        <div class="name">Layali Shoman</div>
+        <div class="role">Contributor</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>To-Do List MCP Server — coursework project</span>
+  <a href="https://github.com/Aya-Hamayel/MCPServerStarterTemplate_ToDoList" target="_blank" rel="noopener">github.com/Aya-Hamayel/MCPServerStarterTemplate_ToDoList</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
