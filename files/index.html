@@ -35,7 +35,7 @@
     </div>
     <p class="dek">
       The To-Do List MCP Server exposes a small, well-defined set of tools —
-      add, list, complete, delete, search — so an AI model can manage a
+      add, list, complete — so an AI model can manage a
       person's tasks directly, validated and running entirely on their own
       machine.
     </p>
@@ -147,18 +147,7 @@
             <td><code>taskId: string</code></td>
             <td><span class="pill p0">P0</span></td>
           </tr>
-          <tr>
-            <td><code>delete_task</code></td>
-            <td>Remove an existing task using its task ID.</td>
-            <td><code>taskId: number</code></td>
-            <td><span class="pill p1">P1</span></td>
-          </tr>
-          <tr>
-            <td><code>search_tasks</code></td>
-            <td>Search stored tasks using a keyword.</td>
-            <td><code>query: string</code></td>
-            <td><span class="pill p1">P1</span></td>
-          </tr>
+          
         </tbody>
       </table>
     </div>
@@ -188,26 +177,12 @@
   </div>
 </section>
 
-<section id="scope">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="tag">05</span>
-      <h2>Out of scope</h2>
-    </div>
-    <ul class="scope-list">
-      <li>User authentication and multiple user accounts</li>
-      <li>Mobile or graphical user interface</li>
-      <li>Notifications, reminders, or calendar integration</li>
-      <li>Cloud database synchronization</li>
-      <li>Paid APIs or external online services</li>
-    </ul>
-  </div>
-</section>
+
 
 <section id="team">
   <div class="wrap">
     <div class="section-head">
-      <span class="tag">06</span>
+      <span class="tag">05</span>
       <h2>Team</h2>
     </div>
     <div class="team">
