@@ -131,3 +131,21 @@ export async function completeTaskById(
 
   return task;
 }
+
+export async function deleteTaskById(
+  id: number,
+): Promise<Task | null> {
+  const tasks = await loadTasks();
+
+  const taskIndex = tasks.findIndex((task) => task.id === id);
+
+  if (taskIndex === -1) {
+    return null;
+  }
+
+  const [deletedTask] = tasks.splice(taskIndex, 1);
+
+  await saveTasks(tasks);
+
+  return deletedTask;
+}

@@ -1,31 +1,34 @@
 import type { McpServer } from "@modelcontextprotocol/server";
-
 import { deleteTaskInputSchema } from "../schemas/delete-task.js";
+import { deleteTaskById } from "../lib/tasks.js";
 
-/** Week 2 stub — deletes a task using its task ID. */
 export function registerDeleteTaskTool(server: McpServer): void {
   server.registerTool(
     "delete_task",
     {
       description:
-        "Delete an existing task using its numeric task ID and return a deletion confirmation.",
+        "Delete an existing task using its task ID and return a deletion confirmation.",
       inputSchema: deleteTaskInputSchema,
     },
     async ({ taskId }) => {
+      const task = await deleteTaskById(taskId);
+
+      if (!task) {
+        return {
+          content: [
+            {
+              type: "text",
+              text: `Task #${taskId} not found. It may have already been removed or the ID is incorrect.`,
+            },
+          ],
+        };
+      }
+
       return {
         content: [
           {
             type: "text",
-            text: JSON.stringify(
-              {
-                stub: true,
-                tool: "delete_task",
-                deletedTaskId: taskId,
-                message: `Task #${taskId} was deleted successfully.`,
-              },
-              null,
-              2,
-            ),
+            text: `Task #${task.id} deleted successfully: "${task.text}"`,
           },
         ],
       };
