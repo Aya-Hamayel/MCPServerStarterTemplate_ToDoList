@@ -1,6 +1,7 @@
 # To-Do List MCP Server
 
 A Model Context Protocol (MCP) server that manages a simple to-do list — add, list, complete, and delete tasks — backed by local JSON storage. All tool inputs are validated with [Zod](https://zod.dev/).
+This project was developed as part of the [NextFlows Academy](https://nextflows.ai/academy) program.
 
 ## What It Does
 
